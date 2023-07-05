@@ -78,14 +78,6 @@ async def yazitura(ctx: interactions.CommandContext):
 async def psppazar(ctx: interactions.CommandContext):
     await ctx.send("PSP PAZAR... PAZAR... PAZAR... PAZAR... PAZAR")
 
-
-@bot.event
-async def on_message(message):
-    channel = message.channel
-    chance = 69
-    if(chance == 69):
-        await channel.send("noluyo sikicceö")
-
 @bot.event
 async def on_ready():
     print("Ready")
