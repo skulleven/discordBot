@@ -1,4 +1,5 @@
 from interactions import Client, Intents, listen, slash_command, SlashContext, OptionType, slash_option
+from interactions.api.events import MessageCreate
 import random
 
 bot = Client(Intents=Intents.DEFAULT)
@@ -72,6 +73,13 @@ async def psppazar(ctx: SlashContext):
 @listen()
 async def on_ready():
     print("Ready")
+
+@listen()
+async def on_message_create(event: MessageCreate):
+    if(event.message.author != bot):
+        chance = random.randint(0, 100)
+        if(chance == 69):
+            await event.message.channel.send("noluyo sikicceö")
 
 bot.start("MTEyNTk2NTE2MTI1ODMwMzY1OQ.GhPZUR.kXRXPPoz72K95EK51Ut6GKKwbPFzczQSSIkI4o")
 
