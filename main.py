@@ -1,4 +1,4 @@
-from interactions import Client, Intents, listen, slash_command, SlashContext, OptionType, slash_option
+from interactions import Client, Intents, listen, slash_command, SlashContext, OptionType, slash_option, Embed, EmbedAuthor, EmbedField
 from interactions.api.events import MessageCreate
 import random
 
@@ -81,6 +81,12 @@ async def psppazar(ctx: SlashContext):
 async def guckartlari(ctx: SlashContext, kart: str):
     if(ctx.author != bot):
         print(ctx.author)
+        if(kart == "help"):
+            epic = Embed(
+                title="Güç Kartları",
+                description="reverse, napim, eee, şeyimiye, gavat, delirme, adnanoktar, ilberortaylı, ösym, laf, ???, komik, as, amk, örümcek, kokarca, köpek kartal, kahkaha, ss, boş, çomar, bizene, ğ"
+            )
+            await ctx.send(embed=epic)
         if(kart == "reverse"):
             await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155358511431780/EXnuJGzU8AAGGQY.jpg")
         if(kart == "napim"):
@@ -93,7 +99,7 @@ async def guckartlari(ctx: SlashContext, kart: str):
             await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155490585215026/bw2e0pvq0ve51.jpg")
         if(kart == "delirme"):
             await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155490350071849/2932947_ofa6e.jpg")
-        if(kart == "adnan oktar"):
+        if(kart == "adnanoktar"):
             await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155490144682034/rd3DNq.jpg")
         if(kart == "ilberortaylı"):
             await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155489926316062/rd3Qqj.jpg")
