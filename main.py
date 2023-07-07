@@ -1,4 +1,4 @@
-from interactions import Client, Intents, listen, slash_command, SlashContext, OptionType, slash_option, Embed, EmbedAuthor, EmbedField
+from interactions import Client, Intents, listen, slash_command, SlashContext, OptionType, slash_option, Embed
 from interactions.api.events import MessageCreate
 import random
 
@@ -13,13 +13,17 @@ burasiminecraftsozler = ["Bu akşam bir sesler var kapımın önünde Bu akşam 
 @slash_option(
     name="fiyat",
     description="Fiyatı yazın",
-    opt_type=OptionType.STRING,
+    opt_type=OptionType.INTEGER,
     required=True,
 )
-async def tavukdoner_function(ctx: SlashContext, fiyat: str):
-    idk = int(fiyat)
-    solution = idk / 50
-    await ctx.send("Döner indexi " + str(solution))
+async def tavukdoner_function(ctx: SlashContext, fiyat: int):
+    try:
+        idk = int(fiyat)
+        solution = idk / 50
+        await ctx.send("Döner indexi " + str(solution))
+    except ValueError:
+        await ctx.send("Lütfen sayı giriniz")
+        
 
 @slash_command(
         name="baskin",
@@ -84,7 +88,7 @@ async def guckartlari(ctx: SlashContext, kart: str):
         if(kart == "help"):
             epic = Embed(
                 title="Güç Kartları",
-                description="reverse, napim, eee, şeyimiye, gavat, delirme, adnanoktar, ilberortaylı, ösym, laf, ???, komik, as, amk, örümcek, kokarca, köpek kartal, kahkaha, ss, boş, çomar, bizene, ğ"
+                description="reverse, napim, eee, şeyimiye, gavat, delirme, adnanoktar, ilberortaylı, ösym, laf, ???, komik, as, amk, örümcek, kokarca, köpek kartal, kahkaha, ss, boş, çomar, bizene, ğ",
             )
             await ctx.send(embed=epic)
         if(kart == "reverse"):
@@ -137,8 +141,9 @@ async def guckartlari(ctx: SlashContext, kart: str):
             await ctx.send("Resim bulunamadı. Doğru yazdığından emin ol.")
     else:
         return
-    
-    
+
+
+
 
 @listen()
 async def on_ready():
