@@ -1,5 +1,5 @@
-from interactions import Client, Intents, listen, slash_command, SlashContext, OptionType, slash_option, Embed
-from interactions.api.events import MessageCreate
+from interactions import Client, Intents, listen, slash_command, SlashContext, OptionType, slash_option, Embed, events
+from interactions.api.events import MessageCreate, MemberAdd
 import random
 
 bot = Client(Intents=Intents.DEFAULT)
@@ -24,7 +24,6 @@ async def tavukdoner_function(ctx: SlashContext, fiyat: int):
     except ValueError:
         await ctx.send("Lütfen sayı giriniz")
         
-
 @slash_command(
         name="baskin",
         description="FBI OPEN UP",
@@ -141,9 +140,6 @@ async def guckartlari(ctx: SlashContext, kart: str):
             await ctx.send("Resim bulunamadı. Doğru yazdığından emin ol.")
     else:
         return
-
-
-
 
 @listen()
 async def on_ready():
