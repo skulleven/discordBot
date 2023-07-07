@@ -1,10 +1,14 @@
 from interactions import Client, Intents, listen, slash_command, SlashContext, OptionType, slash_option, Embed, events
 from interactions.api.events import MessageCreate, MemberAdd
 import random
+import os
+from dotenv import load_dotenv
 
 bot = Client(Intents=Intents.DEFAULT)
 
 burasiminecraftsozler = ["Bu akşam bir sesler var kapımın önünde Bu akşam bir hırıltı var kapımın önündeKaderde var savaşmak Asla kaçmam ben savaştan", "Benim adımı herkes duysun Bu savaşın galibi Doktor Burak Zombi çok yaratık bol elmas kılıcım var Fark etmez bana yaratık hepinizi yenerim", "Zombi çok yaratık bol elmas kılıcım var Fark etmez bana yaratık hepinizi yenerim Burası Minecraft hiç bitmez burada savaşmak Bloklar, silahlar Minecraft'ta bitmez savaşmak"]
+
+load_dotenv()
 
 @slash_command(
     name="tavukdoner",
@@ -152,5 +156,5 @@ async def on_message_create(event: MessageCreate):
         if(chance == 69):
             await event.message.channel.send("noluyo sikicceö")
 
-bot.start("MTEyNTk2NTE2MTI1ODMwMzY1OQ.GhPZUR.kXRXPPoz72K95EK51Ut6GKKwbPFzczQSSIkI4o")
+bot.start(os.getenv("TOKEN"))
 
