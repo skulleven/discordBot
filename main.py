@@ -4,8 +4,6 @@ import random
 
 bot = Client(Intents=Intents.DEFAULT)
 
-guild = 820008929517109269
-
 burasiminecraftsozler = ["Bu akşam bir sesler var kapımın önünde Bu akşam bir hırıltı var kapımın önündeKaderde var savaşmak Asla kaçmam ben savaştan", "Benim adımı herkes duysun Bu savaşın galibi Doktor Burak Zombi çok yaratık bol elmas kılıcım var Fark etmez bana yaratık hepinizi yenerim", "Zombi çok yaratık bol elmas kılıcım var Fark etmez bana yaratık hepinizi yenerim Burası Minecraft hiç bitmez burada savaşmak Bloklar, silahlar Minecraft'ta bitmez savaşmak"]
 
 @slash_command(
@@ -69,6 +67,72 @@ async def yazitura(ctx: SlashContext):
 )
 async def psppazar(ctx: SlashContext):
     await ctx.send("PSP PAZAR... PAZAR... PAZAR... PAZAR... PAZAR")
+
+@slash_command(
+        name="guckartlari",
+        description="a",
+)
+@slash_option(
+    name="kart",
+    description="a",
+    opt_type=OptionType.STRING,
+    required=True,
+)
+async def guckartlari(ctx: SlashContext, kart: str):
+    if(ctx.author != bot):
+        print(ctx.author)
+        if(kart == "reverse"):
+            await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155358511431780/EXnuJGzU8AAGGQY.jpg")
+        if(kart == "napim"):
+            await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155491411361812/ErMrKtIXAAAOrLf.jpg")
+        if(kart == "eee"):
+            await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155491172941884/l6qvqordtq861.jpg")
+        if(kart == "şeyimiye"):
+            await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155490861645894/xion9n7bcah61.jpg")
+        if(kart == "gavat"):
+            await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155490585215026/bw2e0pvq0ve51.jpg")
+        if(kart == "delirme"):
+            await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155490350071849/2932947_ofa6e.jpg")
+        if(kart == "adnan oktar"):
+            await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155490144682034/rd3DNq.jpg")
+        if(kart == "ilberortaylı"):
+            await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155489926316062/rd3Qqj.jpg")
+        if(kart == "ösym"):
+            await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155416811208814/BxFa0AvCUAIyOAc.jpg")
+        if(kart == "laf"):
+            await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155416610013274/66fbd9e6e3b43839a6be7ce1ef0cd1a8.jpg")
+        if(kart == "???"):
+            await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155416430575646/132533ee46ffef0663d51baf3c6ece48.jpg")
+        if(kart == "komik"):
+            await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155416228724816/3351997_o67b5.jpg")
+        if(kart == "as"):
+            await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155416086380584/agxazbKL_700w_0.jpg")
+        if(kart == "amk"):
+            await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155415901044776/2777633_o43e1.jpg")
+        if(kart == "örümcek"):
+            await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155415272292352/f108a2e207e4d7b639a793938058afb1.jpg")
+        if(kart == "kokarca"):
+            await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155415083941918/3fcec5c39b2c218742994778c5f11899.jpg")
+        if(kart == "köpek kartal"):
+            await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155359425921044/d7cbc49a4ec8ed9d5756c83092903a29.jpg")
+        if(kart == "kahkaha"):
+            await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155359224070204/3217846_od7f2.jpg")
+        if(kart == "ss"):
+            await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155359093522482/25c9ce01ed633d5e8fa4553d4d9c0838.jpg")
+        if(kart == "boş"):
+            await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155358913560576/fe1a5fa24574dd73edee06ab8740f550.jpg")
+        if(kart == "çomar"):
+            await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155358343790622/IMG_20210306_145313_988.jpg")
+        if(kart == "bizene"):
+            await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155358070374410/FB_IMG_1618260014690.jpg")
+        if(kart == "ğ"):
+            await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155357486972958/IMG_20210420_120455_128.jpg")
+        else:
+            await ctx.send("Resim bulunamadı. Doğru yazdığından emin ol.")
+    else:
+        return
+    
+    
 
 @listen()
 async def on_ready():
