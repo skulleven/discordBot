@@ -73,11 +73,11 @@ async def psppazar(ctx: SlashContext):
 
 @slash_command(
         name="guckartlari",
-        description="a",
+        description="Karşındakine kiminle konuştuğunu göster",
 )
 @slash_option(
     name="kart",
-    description="a",
+    description="Kullanabileceğin kartları görmek için help yaz.",
     opt_type=OptionType.STRING,
     required=True,
 )
