@@ -1,4 +1,4 @@
-from interactions import Client, Intents, listen, slash_command, SlashContext, OptionType, slash_option, Embed, events
+from interactions import Client, Intents, listen, slash_command, SlashContext, OptionType, slash_option, Embed, events, Status
 from interactions.api.events import MessageCreate, MemberAdd
 import random
 import os
@@ -150,6 +150,7 @@ async def guckartlari(ctx: SlashContext, kart: str):
 @listen()
 async def on_ready():
     print("Ready")
+    await bot.change_presence(Status.ONLINE, "League of Legends")
 
 @listen()
 async def on_message_create(event: MessageCreate):
