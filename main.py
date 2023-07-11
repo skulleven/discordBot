@@ -23,8 +23,6 @@ burasiminecraftsozler = ["Bu akşam bir sesler var kapımın önünde Bu akşam 
 
 guckartlari_array = ["help", "reverse", "napim", "eee", "şeyimiye", "gavat", "delirme", "adnanoktar", "ilberortaylı", "ösym", "laf", "???", "komik", "as", "amk", "örümcek", "kokarca", "köpek kartal", "kahkaha", "ss", "boş", "çomar", "bizene", "ğ"]
 
-
-
 @slash_command(
     name="tavukdoner",
     description="Tavuk döner indeksi şu an ki fiyatı 50tl",
@@ -202,4 +200,3 @@ async def on_message_create(event: MessageCreate):
             await event.message.channel.send("noluyo sikicceö")
 
 bot.start(os.getenv("TOKEN"))
-
