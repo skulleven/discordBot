@@ -3,14 +3,27 @@ from interactions.api.events import MessageCreate, MemberAdd
 import random
 import os
 from dotenv import load_dotenv
+import requests
+import json
+
+load_dotenv()
 
 bot = Client(Intents=Intents.DEFAULT)
+
+dolarurl = os.getenv("DOLARURL")
+eurourl = os.getenv("EUROURL")
+dolarkur = requests.get(dolarurl)
+data1 = dolarkur.json()
+dolartry = data1["conversion_rates"]
+eurokur = requests.get(eurourl)
+data2 = eurokur.json()
+eurotry = data2["conversion_rates"]
 
 burasiminecraftsozler = ["Bu akşam bir sesler var kapımın önünde Bu akşam bir hırıltı var kapımın önündeKaderde var savaşmak Asla kaçmam ben savaştan", "Benim adımı herkes duysun Bu savaşın galibi Doktor Burak Zombi çok yaratık bol elmas kılıcım var Fark etmez bana yaratık hepinizi yenerim", "Zombi çok yaratık bol elmas kılıcım var Fark etmez bana yaratık hepinizi yenerim Burası Minecraft hiç bitmez burada savaşmak Bloklar, silahlar Minecraft'ta bitmez savaşmak"]
 
 guckartlari_array = ["help", "reverse", "napim", "eee", "şeyimiye", "gavat", "delirme", "adnanoktar", "ilberortaylı", "ösym", "laf", "???", "komik", "as", "amk", "örümcek", "kokarca", "köpek kartal", "kahkaha", "ss", "boş", "çomar", "bizene", "ğ"]
 
-load_dotenv()
+
 
 @slash_command(
     name="tavukdoner",
@@ -146,6 +159,35 @@ async def guckartlari(ctx: SlashContext, kart: str):
                 await ctx.send("https://cdn.discordapp.com/attachments/766672422979502083/834155357486972958/IMG_20210420_120455_128.jpg")
     if(found == False):
         await ctx.send("Kart bulunamadı")
+
+@slash_command(
+        name="kurtl",
+        description="Güncel döviz kuruyla ne kadar fakir olduğunuzu görün"
+)
+@slash_option(
+        name="tl",
+        description="Sahip olduğunuz parayı yazın",
+        opt_type=OptionType.STRING,
+        required=True
+)
+@slash_option(
+        name="birim",
+        description="Dolaramı euroyamı çevirmek istediğinizi yazın. ('dolar' ya da 'euro' olarak yazın)",
+        opt_type=OptionType.STRING,
+        required=True
+)
+async def kurtl(ctx: SlashContext, tl: str, birim: str):
+    try:
+        if(birim.lower() == "dolar"):
+            sahipoldugu = float(tl)
+            fakirmidegilmi = sahipoldugu / float(dolartry["TRY"])
+            await ctx.send("Sahip olduğunuz paranın dolar karşılığı : " + str(fakirmidegilmi))
+        if(birim.lower() == "euro"):
+            sahipoldugu = float(tl)
+            fakirmidegilmi = sahipoldugu / float(eurotry["TRY"])
+            await ctx.send("Sahip olduğunuz paranın euro karşılığı : " + str(fakirmidegilmi))
+    except ValueError:
+        await ctx.send("Lütfen sayı girin")
 
 @listen()
 async def on_ready():
